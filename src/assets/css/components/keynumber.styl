@@ -1,0 +1,192 @@
+.keyboard_click
+
+    margin-top 25px
+
+    .keys
+        display flex
+        justify-content: center
+        align-items: center
+        margin 5px 0
+
+        
+
+    button
+        border: 1px solid #d9d9d9;
+        width: 100%;
+        height: 30px;
+        border-radius: 3px;
+        display: inline-block;
+        background-color: transparent
+        font-size: 14px;
+        font-weight: 600;
+        color: #175c7d;
+        text-align: center;
+        line-height: 26px;
+        margin: 0 .5%;
+        max-width: 30px;
+        max-height: 30px;
+        user-select: none
+        transition: none
+
+        &.backspace
+            min-width: 63px
+
+        &.space
+            max-width: 100%
+
+        &:hover
+            background: #d9e2e6;
+            cursor: pointer;
+            border: 1px solid #175c7d
+
+.phrase
+    flex 1
+    opacity .5
+
+    &.active
+        opacity 1
+
+    header
+
+        h6
+            color: #175c7d
+            font-size: 12px;
+            font-weight: 700
+            text-transform uppercase
+            width 100%
+            display block
+
+        > span
+            width 100%
+            display flex
+
+            input
+                flex 1
+                appearance: none
+                border-color: #36697b;
+                border-width: 1px;
+                color: #626669;
+                height: 25px;
+                line-height: 20px;
+                padding: 5px 10px 2px;
+                border: 1px solid #b6b7b9;
+                display: inline-block;
+                font-size: 20px;
+                color: #175c7d;
+                margin-right: 5px;
+
+                &:active,
+                &:focus
+                    border-color: #175c7d
+                    border-width: 1px;
+
+
+
+.clean_click
+    width 45px
+    height: 20px
+    color #fff
+    background: #175c7d
+    border: none
+    border-radius: 2px
+    font-size: 10px;
+    font-weight: 700
+    text-align: center
+    display inline-block
+    justify-content: center
+    align-items: center
+    position relative
+    margin-top: 5px
+    margin-left: 11px
+    cursor pointer
+
+    &:hover
+        background-color: #012d3d
+
+        &:after
+            background-color: #012d3d
+
+    i
+        z-index 2
+        height: 100%
+        display flex
+        align-items: center
+        position relative
+        width 100%
+        text-align: center
+
+    &:after
+        content ''
+        background: #175c7d;
+        border: none;
+        content: '';
+        display: block;
+        height: 13.5px;
+        left: -7px;
+        position: absolute;
+        top: 3px;
+        transform: rotate(45deg);
+        width: 15px
+        z-index 0
+
+.keyboardNumeric
+    flex 0 0 311px
+
+    article
+        display flex
+        flex-wrap: wrap
+        margin-top: 25px
+        margin-bottom: 25px
+
+        button
+            flex 0 0 75px
+            margin 1%
+            height: 50px;
+            vertical-align: middle;
+            line-height: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #175c7d;
+            float: left;
+            max-height: 50px;
+            max-width: 75px;
+            border: 1px solid #d9d9d9
+            border-radius: 3px
+            background-color: transparent
+            appearance: none
+            transition initial
+
+            &:hover
+                background: #d9e2e6;
+                cursor: pointer;
+                border: 1px solid #175c7d
+
+    header
+        display flex
+        flex-direction column
+
+        h6
+            color: #175c7d
+            font-size: 12px;
+            font-weight: 700
+            text-transform uppercase
+            width 100%
+            display block
+
+
+        input
+            appearance: none
+            outline: none
+            width 20px
+            height: 20px
+            margin 0 2px
+            border: 1px solid #7f858a
+            float: left
+            line-height: 15px
+            text-align: center
+            margin: 5px 2px 0
+            padding: 2px 5px
+
+            &:active,
+            &:focus
+                border: 1px solid #7f858a

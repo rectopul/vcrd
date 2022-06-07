@@ -1,0 +1,123 @@
+.verify_inputs
+    display: flex
+    justify-content center
+    align-items: center
+    width 100%
+
+
+    input
+
+
+        appearance: none
+        width 45px
+        height: 55px
+        border-radius 4px
+        margin 0 5px
+        border 1px solid #ccc
+        text-align center
+        font-weight 600
+        -moz-appearance:textfield
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button 
+            -webkit-appearance: none;
+            margin: 0;
+
+.formMail
+
+    &__code
+
+        height 473px !important
+
+        &.await
+
+            header
+                text-align: center
+            article
+                display flex
+                justify-content: center
+
+        .spinner-border
+            width 3rem
+            height 3rem
+            &.text-primary
+                color color-secondary !important
+
+        &.verify
+            width 100%
+            max-width 30rem
+
+            article
+                width 100%
+                max-width 288px
+                margin 0 auto
+
+            button
+                &.resend 
+                    &:not(:disabled)
+                        background-color rgba(65,137,230,.15)
+                        color #009ee3
+
+        article
+            margin-top 15px !important
+
+            &:hover
+
+                &:before
+                    content none
+
+        footer
+
+            button
+
+                &:disabled 
+                    border-color: transparent;
+                    background-color: rgba(0,0,0,.1);
+                    color: rgba(0,0,0,.25);
+                    cursor: default;
+                    background-clip: padding-box
+
+                    &:hover
+                        border-color: transparent;
+                        background-color: rgba(0,0,0,.1);
+                        color: rgba(0,0,0,.25);
+                        cursor: default;
+                        background-clip: padding-box
+
+
+    h5
+        font-size 16px
+        font-size: 1rem
+        margin-top: 1rem
+        line-height: 1.25rem
+        font-weight 300
+
+    &__inputs
+        height 48px
+        display flex
+        min-width 1px
+
+        span
+            flex 0 0 calc(16.6666666% - 8px)
+            margin 0 4px
+            height 100%
+            border-radius: .375em
+            font-size: 16px
+            background-color: #fff
+            display flex
+            justify-content center
+            align-items center
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.25)
+
+            &.focused
+                box-shadow 0 0 0 0.125em #009ee3
+
+            input
+                width 100%
+                border 0 !important
+                text-align center
+                font-family: inherit;
+                color: rgba(0,0,0,.8)
+                resize: none	
+                font-size: 16px
+                

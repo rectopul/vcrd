@@ -1,0 +1,71 @@
+<form class="productStore">
+    <!-- Input groups with icon -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-box-open"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Nome do produto" name="name" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Preço do Produto" name="price" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-copyright"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Marca" name="brand" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-bars"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Código de Barras (Opcional)" name="barcode" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-cubes"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Estoque (Opcional)" name="stock" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-file mb-4">
+        <input type="file" class="custom-file-input" name="file" id="validatedCustomFile" required>
+        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+        <div class="invalid-feedback">Example invalid custom file feedback</div>
+    </div>
+
+    <button type="submit" class="btn btn-secondary btn-lg btn-block">Cadastrar Produto</button>
+</form>

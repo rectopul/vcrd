@@ -1,0 +1,38 @@
+<div class="container formMail__container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form class="formMail formMail__code authenticate"  >
+                <input type="hidden" name="client" value="{{client.id}}">
+                <header>Informe o código de verificação</header>
+
+                <h5>
+                    Informe o código de 6 dígitos de seu aplicativo.
+                </h5>
+
+                <article>
+                    <div class="formMail__inputs">
+                        <span><input type="tel" name="number_1" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_2" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_3" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_4" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_5" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_6" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                    </div>
+
+                </article>
+
+                <footer>
+                    <button class="authenticate" disabled>Continuar</button>
+
+                    <a class="subButtom" href="#">Enviar ou outro meio</a>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="row formMail__footer">
+        <div class="col-12">
+            Protegido por reCAPTCHA- <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="71px" height="46px">
+<path fill-rule="evenodd"  fill="rgb(244, 130, 33)"
+ d="M11.075,8.004 L58.923,8.004 C60.622,8.004 62.000,9.412 62.000,11.147 L62.000,42.868 C62.000,44.603 60.622,46.010 58.923,46.010 L11.075,46.010 C9.375,46.010 7.998,44.603 7.998,42.868 L7.998,11.147 C7.998,9.412 9.375,8.004 11.075,8.004 Z"/>
+<path fill-rule="evenodd"  fill="rgb(255, 237, 217)"
+ d="M17.372,46.010 L3.075,46.010 C1.375,46.010 -0.002,44.603 -0.002,42.868 L-0.002,3.147 C-0.002,1.412 1.375,0.004 3.075,0.004 L66.954,0.004 C68.654,0.004 70.031,1.412 70.031,3.147 L70.031,26.147 C50.744,35.931 30.090,42.484 17.372,46.010 Z"/>
+<text kerning="auto" font-family="Myriad Pro" fill="rgb(0, 0, 0)" transform="matrix( 2, 0, 0, 2,22.593, 27.526)" font-size="3px"><tspan font-size="3px" font-family="OpenSans" font-weight="bold" fill="#000000">DISC</tspan><tspan font-size="3px" font-family="OpenSans" font-weight="bold" fill="#F48221">O</tspan><tspan font-size="3px" font-family="OpenSans" font-weight="bold" fill="#000000">VER</tspan></text>
+<path fill-rule="evenodd"  opacity="0.102" fill="rgb(255, 255, 255)"
+ d="M11.075,46.010 C9.375,46.010 7.998,44.603 7.998,42.868 L7.998,11.147 C7.998,9.412 9.375,8.004 11.075,8.004 L58.954,8.004 C60.654,8.004 62.031,9.412 62.031,11.147 "/>
+</svg>

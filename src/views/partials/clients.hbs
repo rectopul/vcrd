@@ -1,0 +1,196 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+                <h3 class="mb-0">Formulário para cadastro de clientes</h3>
+                <p class="text-sm mb-0">
+                    Neste formulário é possível cadastrar novos clientes, é necessário cadastrar informações de endereço
+                    <br>
+                    e informações de contato
+                </p>
+            </div>
+
+            <div class="card-body">
+                <form class="formClient needs-validation" novalidate>
+                    <h3 class="mb-3">Informações pessoais</h3>
+
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">Nome</label>
+                        <input class="form-control name" type="text" name="name" id="name" placeholder="Nome do cliente"
+                            required>
+                        {{>check}}
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="example-search-input" class="form-control-label">CPF</label>
+                            <input class="form-control cpf" type="text" name="cpf" id="cpf" placeholder="CPF do cliente"
+                                required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="example-email-input" class="form-control-label">RG</label>
+                            <input class="form-control rg" type="text" name="rg" id="rg" placeholder="RG do cliente"
+                                required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="example-email-input" class="form-control-label">Nacionalidade</label>
+                            <input class="form-control nationality" type="text" name="nationality" id="nationality"
+                                placeholder="Nacionalidade">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="example-email-input" class="form-control-label">Conjugue</label>
+                            <select class="custom-select type" name="marital" id="marital">
+                                <option value="">Selecione o Conjugue</option>
+                                <option value="casado">Casado</option>
+                                <option value="solteiro">Solteiro</option>
+                            </select>
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <div class="form-row mt-4">
+                        <div class="col-md-6">
+                            <label for="example-date-input" class="form-control-label">Data de nascimento</label>
+                            <input class="form-control birth_date" type="date" value="" name="birth_date"
+                                id="birth_date" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="example-date-input" class="form-control-label">Tipo de cliente</label>
+                            <select class="custom-select marital" name="type" id="type">
+                                <option value="">Selecione o tipo de cliente</option>
+                                <option value="proprietário">Proprietário</option>
+                                <option value="inquilino">Inquilino</option>
+                                <option value="fiador">Fiador</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+
+                        <!--Gender -->
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input"
+                                value="male" required>
+                            <label class="custom-control-label" for="customRadioInline1">Homem</label>
+                        </div>
+
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input"
+                                value="female" required>
+                            <label class="custom-control-label" for="customRadioInline2" required>Mulher</label>
+                        </div>
+
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" name="gender" class="custom-control-input"
+                                value="other" required>
+                            <label class="custom-control-label" for="customRadioInline3">Outro</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="note" class="form-control-label">Observações</label>
+                        <textarea class="form-control note" id="note" name="note" rows="3"
+                            placeholder="Alguma observação a acrescentar?"></textarea>
+                    </div>
+
+                    <!-- Dados de Endereço -->
+
+                    <h3 class="mt-6 mb-3">Informações de Endereço</h3>
+
+                    <hr>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="example-text-input" class="form-control-label">CEP</label>
+                            <input class="form-control zipCode" type="text" name="zipCode" id="zipCode"
+                                placeholder="Informe o cep do cliente" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="example-text-input" class="form-control-label">Endereço</label>
+                            <input class="form-control street" type="text" name="street" id="street"
+                                placeholder="Nome da rua com número" required>
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="example-text-input" class="form-control-label">Bairro</label>
+                        <input class="form-control address" type="text" name="address" id="address"
+                            placeholder="Nome do bairro" required>
+                        {{>check}}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            <label for="example-text-input" class="form-control-label">Cidade</label>
+                            <input class="form-control city" type="text" name="city" id="city"
+                                placeholder="Nome da cidade onde reside o cliente" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="example-text-input" class="form-control-label">Estado</label>
+                            <input class="form-control state" type="text" name="state" id="state"
+                                placeholder="Estado onde reside o cliente" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="example-text-input" class="form-control-label">Complemento</label>
+                            <input class="form-control complement" type="text" name="complement" id="complement"
+                                placeholder="Complemento" required>
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <!-- Dados de contato // -->
+                    <h3 class="mt-6 mb-3">Informações de Contato</h3>
+
+                    <hr>
+
+                    <div class="form-group">
+                        <label for="email" class="form-control-label">Endereço de e-mail</label>
+                        <input class="form-control" type="email" name="email" id="email"
+                            placeholder="Endereço de e-mail" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label for="phone" class="form-control-label">Telefone</label>
+                            <input class="form-control" type="tel" name="phone" id="phone"
+                                placeholder="Número de telefone" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="cell" class="form-control-label">Celular</label>
+                            <input class="form-control" type="tel" name="cell" id="cell" placeholder="Número de Celular"
+                                required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="other" class="form-control-label">Outros números para contato</label>
+                            <input class="form-control" type="tel" name="other" id="other"
+                                placeholder="Números adicionais para contato">
+                        </div>
+                    </div>
+
+                    <!-- Submit // -->
+                    <button class="btn btn-icon btn-primary my-5" type="submit">
+                        <span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span>
+                        <span class="btn-inner--text">Cadastrar</span>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+        {{>modal-success}}
+    </div>
+</div>

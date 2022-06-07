@@ -1,0 +1,101 @@
+.container-account
+    position: absolute
+    top 0
+    left 0
+    background-color: #fff
+    z-index: 20
+    width 100%
+    height: 100%
+
+    &.hidden
+        transform translateX(-100vw)
+        transition: transform .5s linear
+
+    > footer
+        background-color #FEEB09
+        height: 20px
+        width 100%
+        position: absolute
+        bottom 0
+        left 0
+
+    > header
+
+        background-color: #0359A4
+        width 100%
+        text-align: center
+        color #fff
+        font-size: 22px
+        font-family: arial, sans-serif
+        height: 75px
+        display: flex
+        justify-content: center
+        align-items: center
+        border 0
+        outline: 0
+        position: relative
+
+        &::after
+            width 100%
+            height: 3px
+            display block
+            content ''
+            background-color: #FEEB09
+            position: absolute
+            left 0
+            bottom -2px
+
+    > article
+        width 100%
+        padding 0 10px
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 70px
+        background-color: #F4F4F4
+
+        h2
+            font-family: arial, sans-serif
+            font-size: 24px
+            color #212121
+            font-weight: bold
+
+    .accountType__options
+        width 100%
+
+        ul
+            display: flex
+            flex-direction: column
+
+            li
+                height: 60px
+                padding 0 15px
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: flex-start
+                border-bottom: 1px solid #F0F0F0
+                position: relative
+
+                span
+                    color #181818
+                    font-size: 16px
+                    font-weight: 500
+
+                &::after
+                    content ''
+                    display block
+                    position absolute
+                    width 10px
+                    height: 10px
+                    background-color: transparent
+                    border-right 2px solid #9A9A9A
+                    border-bottom 2px solid #9A9A9A
+                    transform rotate(-50deg)
+                    right:  10px
+                    bottom 50%
+                    margin-bottom: -5px
+
+
+    @media screen and (min-width 768px)
+        display: none

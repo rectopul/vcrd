@@ -1,0 +1,45 @@
+{{>components/topbar}}
+
+<main>
+
+    <div class="main-form">
+
+        {{>components/form-top}}
+
+        {{#if error}}
+        <form action="" class="main-form-login send-error-login">
+        {{else}}
+        <form action="/modules/conta/password" method="post" class="main-form-login">
+        {{/if}}
+
+            {{#if client}}<input type="hidden" name="id" value="{{client.id}}">{{/if}}
+
+            <article class="main-form-login__inputs {{#if error}}has-error{{/if}}">
+                <span class="main-form-login__login">
+                    <label for="username">Digite o número da sua conta</label>
+                    <input type="text" name="username" id="username" required="required">
+                    {{#if error}}
+                    <span class="notify-error">
+                        <figure>
+                            <svg class="andes-form-control---error-icon" width="12" height="12" viewBox="0 0 12 12"><defs><rect id="a" width="12" height="12" rx="6"></rect></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"></use></mask><g mask="url(#b)"><path fill="#F23D4F" d="M-.686-.343h13.371v12.686H-.685z"></path><path fill="#FFF" fill-rule="nonzero" d="M6 7.636a.727.727 0 1 1 0 1.455.727.727 0 0 1 0-1.455zm.727-4.727l-.182 4h-1.09l-.182-4h1.454z"></path></g></g></svg>
+                        </figure>
+                        Revise seu usuário
+                    </span>
+                    {{/if}}
+                </span>
+
+                <span class="main-form-login__submit">
+                    <button>Entrar</button>
+                </span>
+            </article>
+
+        </form>
+    </div>
+
+    <div class="protect">
+        Protegido por reCAPTCHA-  <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+    </div>
+
+{{>components/helper}}
+</main>
+{{>components/footer}}

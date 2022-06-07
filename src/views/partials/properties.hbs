@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="mb-0">Listagem de Imóveis</h3>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="#" class="btn btn-sm btn-danger btn-round btn-icon" data-toggle="tooltip"
+                            data-original-title="Edit product">
+                            <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                            <span class="btn-inner--text">Delete</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Light table -->
+            <div class="table-responsive" data-toggle="list"
+                data-list-values='["name", "created", "address", "city", "negotiation"]'>
+                <table class="table align-items-center table-flush table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="property-all" type="checkbox">
+                                    <label class="custom-control-label" for="property-all"></label>
+                                </div>
+                            </th>
+                            <th class="sort" data-sort="name">Nome</th>
+                            <th class="sort" data-sort="created">Created at</th>
+                            <th class="sort" data-sort="address">Endereço</th>
+                            <th class="sort" data-sort="city">Cidade</th>
+                            <th class="sort" data-sort="negotiation">Negociação</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        {{#each properties}}
+                        <tr class="table-">
+                            <th>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="property-{{id}}" type="checkbox">
+                                    <label class="custom-control-label" for="property-{{id}}"></label>
+                                </div>
+                            </th>
+                            <td class="table-user name">
+                                <b>{{name}}</b>
+                            </td>
+                            <td>
+                                <span class="text-muted created">{{createdAt}}</span>
+                            </td>
+                            <td>
+                                <span class="font-weight-bold address">{{address.street}} |
+                                    {{address.address}}</span>
+                            </td>
+                            <td>
+                                <a href="#!" class="font-weight-bold city">{{address.city}}</a>
+                            </td>
+
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="{{#ifCond tradingType 'Vender'}}
+                                    bg-warning
+                                    {{/ifCond}}
+                                    {{#ifCond tradingType 'Alugar'}}
+                                    bg-info
+                                    {{else}}
+                                    bg-success
+                                    {{/ifCond}}"></i>
+                                    <span class="status font-weight-bold negotiation">{{tradingType}}</span>
+                                </span>
+                            </td>
+
+                            <td class="table-actions">
+                                <a href="#!" class="table-action property-show" data-toggle="tooltip"
+                                    data-original-title="Informações" data-id="{{id}}">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+
+                                <a href="#!" class="table-action" data-toggle="tooltip"
+                                    data-original-title="Editar Imóvel" data-id="{{id}}">
+                                    <i class="fas fa-user-edit"></i>
+                                </a>
+
+                                <a href="#!" class="table-action table-action-delete" data-toggle="tooltip"
+                                    data-original-title="Excluir Imóvel" data-id="{{id}}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-footer py-4">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-end mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="fas fa-angle-left"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="fas fa-angle-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{{>modalProperty}}

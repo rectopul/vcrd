@@ -1,0 +1,388 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+                <h3 class="mb-0">Cadastrar nova locação</h3>
+                <p class="text-sm mb-0 mt-3">
+                    Nesta página você pode cadastrar uma nova locação para seus imóveis. Não se esqueça de fornecer o
+                    maximo de informações para um melhor controle.
+                </p>
+            </div>
+
+            <div class="card-body">
+                <form class="formLocations needs-validation" novalidate>
+                    <!-- Tabs -->
+                    <div class="nav-wrapper">
+                        <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0 active" id="occupantProperty-tab" data-toggle="tab"
+                                    href="#occupantProperty" role="tab" aria-controls="occupantProperty"
+                                    aria-selected="true">
+                                    <i class="fas fa-home"></i>
+                                    Imóvel e Locatários
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="valuesDiscount-tab" data-toggle="tab"
+                                    href="#valuesDiscount" role="tab" aria-controls="valuesDiscount"
+                                    aria-selected="false">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Valores e Descontos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="otherInformation-tab" data-toggle="tab"
+                                    href="#otherInformation" role="tab" aria-controls="tabs-icons-text-3"
+                                    aria-selected="false">
+                                    <i class="fas fa-info-circle"></i>
+                                    Outras Informações
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar locationProgress" role="progressbar" style="width: 30%"
+                            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <!-- Content // -->
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="tab-content" id="myTabContent">
+                                <!-- Imóveis e locatarios // -->
+                                <div class="tab-pane fade show active" id="occupantProperty" role="tabpanel"
+                                    aria-labelledby="occupantProperty-tab">
+                                    <div class="form-group mt-5">
+                                        <h4 class="text-muted">Tipo de locação</h4>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="locationTypeResidencial" name="locationType"
+                                                class="custom-control-input" value="residencial" checked>
+                                            <label class="custom-control-label"
+                                                for="locationTypeResidencial">Residencial</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="locationTypeComercial" name="locationType"
+                                                class="custom-control-input" value="comercial">
+                                            <label class="custom-control-label"
+                                                for="locationTypeComercial">Comercial</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="locationTypeResidCom" name="locationType"
+                                                class="custom-control-input" value="residencial/comercial">
+                                            <label class="custom-control-label"
+                                                for="locationTypeResidCom">Residencial/Comercial</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="locationTypeIndustrial" name="locationType"
+                                                class="custom-control-input" value="industrial">
+                                            <label class="custom-control-label"
+                                                for="locationTypeIndustrial">Industrial</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="locationTypeEscritorio" name="locationType"
+                                                class="custom-control-input" value="escritório">
+                                            <label class="custom-control-label"
+                                                for="locationTypeEscritorio">Escritório</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-4 inputWrapper propertyTag">
+                                        <div class="col-md-6">
+                                            <label for="property" class="form-control-label">Imóvel</label>
+                                            <br>
+                                            <input type="text" class="form-control property" id="property"
+                                                name="property" placeholder="Buscar Imóvel" data-toggle="tags" required>
+                                            {{>check}}
+
+                                            <!-- Response of search -->
+
+                                            <div class="row responseCard responseProperty mt-3">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <div class="card-header border-0">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <h3 class="mb-0">Imóveis encontrados</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="table-responsive">
+                                                            <div>
+                                                                <table
+                                                                    class="table align-items-center table-flush table-hover">
+                                                                    <thead class="thead-light">
+                                                                        <tr>
+                                                                            <th scope="col">
+                                                                                Nome</th>
+                                                                            <th scope="col">
+                                                                                Descrição</th>
+                                                                            <th scope="col">
+                                                                                Tipo</th>
+                                                                            <th scope="col">
+                                                                                Imóvel é?</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody class="list resultList propertyList">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 inputWrapper ownerTag">
+                                            <label for="owner" class="form-control-label">Proprietário</label>
+                                            <br>
+                                            <input type="text" class="form-control owner searching" id="owner"
+                                                name="owner" placeholder="Proprietário" data-toggle="tags" required>
+                                            {{>check}}
+
+                                            <!-- Response of search -->
+
+                                            <div class="row responseCard responseOwner mt-3">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <div class="card-header border-0">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <h3 class="mb-0">Proprietários encontrados</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="table-responsive">
+                                                            <div>
+                                                                <table
+                                                                    class="table align-items-center table-flush table-hover">
+                                                                    <thead class="thead-light">
+                                                                        <tr>
+                                                                            <th scope="col">
+                                                                                Nome</th>
+                                                                            <th scope="col">
+                                                                                CPF</th>
+                                                                            <th scope="col">
+                                                                                Género</th>
+                                                                            <th scope="col">
+                                                                                Tipo</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody class="list resultList ownerList">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group inputWrapper occupantTag">
+                                        <label for="occupant" class="form-control-label">Inquilino</label>
+                                        <br>
+                                        <input type="text" class="form-control occupant searching" id="occupant"
+                                            name="occupant" placeholder="Selecione o Inquilino" data-toggle="tags"
+                                            required>
+                                        {{>check}}
+
+                                        <!-- Response of search -->
+
+                                        <div class="row responseCard responseOwner mt-3">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-header border-0">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <h3 class="mb-0">Inquilinos encontrados</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <div>
+                                                            <table
+                                                                class="table align-items-center table-flush table-hover">
+                                                                <thead class="thead-light">
+                                                                    <tr>
+                                                                        <th scope="col">
+                                                                            Nome</th>
+                                                                        <th scope="col">
+                                                                            CPF</th>
+                                                                        <th scope="col">
+                                                                            Género</th>
+                                                                        <th scope="col">
+                                                                            Tipo</th>
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody class="list resultList ownerList">
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit // -->
+                                    <a class="btn btn-icon nextTab btn-primary my-5" id="valuesDiscount-tab"
+                                        data-toggle="tab" href="#valuesDiscount" role="tab"
+                                        aria-controls="valuesDiscount" aria-selected="false">
+                                        <span class="btn-inner--text">Próximo</span>
+                                    </a>
+                                </div>
+
+                                <!-- Valores e descontos // -->
+
+                                <div class="tab-pane fade" id="valuesDiscount" role="tabpanel"
+                                    aria-labelledby="valuesDiscount-tab">
+
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <label class="form-control-label" for="participation">Participação</label>
+                                            <input type="text" class="form-control" name="participation"
+                                                id="participation" placeholder="Valor em porcentagem (%)">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="paymentType">Tipo de
+                                                    Pagamento</label>
+                                                <select class="form-control" name="paymentType" id="paymentType">
+                                                    <option value="Boleto">Boleto Bancário</option>
+                                                    <option value="Cheque de terceiros">Cheque de terceiros</option>
+                                                    <option value="Cheque Próprio">Cheque Próprio</option>
+                                                    <option value="Debito">Débito em Conta</option>
+                                                    <option value="Deposito">Depósito</option>
+                                                    <option value="Saque">Saque</option>
+                                                    <option value="DOC">Transf. Bancária via DOC</option>
+                                                    <option value="TED">Transf. Bancária via TED</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-control-label" for="locationValue">Valor da
+                                                locação</label>
+                                            <input type="text" class="form-control" name="locationValue"
+                                                id="locationValue" placeholder="Valor mensal" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <label for="locationStart" class="form-control-label">Data do Inicio do
+                                                aluguel</label>
+                                            <input class="form-control" type="date" name="locationStart"
+                                                id="locationStart" required>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label for="locationTime" class="form-control-label">Duração</label>
+                                            <input class="form-control" type="text" name="locationTime"
+                                                id="locationTime" placeholder="Mês" required>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="locationEnd" class="form-control-label">Data do final do
+                                                aluguel</label>
+                                            <input class="form-control" type="date" name="locationEnd" id="locationEnd"
+                                                disabled>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <div class="col-auto pr-0">
+                                                    <label for="administrationFee" class="form-control-label"></label>
+                                                    <select class="form-control mt-2" id="admFeeType" name="admFeeType">
+                                                        <option selected>%</option>
+                                                        <option>R$</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col">
+                                                    <label for="administrationFee" class="form-control-label">Taxa de
+                                                        Administração</label>
+                                                    <input class="form-control" type="text" name="administrationFee"
+                                                        id="administrationFee" placeholder="Taxa de Administração"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit // -->
+                                    <a class="btn btn-icon nextTab btn-primary my-5" id="otherInformation-tab"
+                                        data-toggle="tab" href="#otherInformation" role="tab"
+                                        aria-controls="otherInformation" aria-selected="false">
+                                        <span class="btn-inner--text">Próximo</span>
+                                    </a>
+                                </div>
+
+                                <!-- Outras Informações // -->
+
+                                <div class="tab-pane fade" id="otherInformation" role="tabpanel"
+                                    aria-labelledby="otherInformation-tab">
+                                    <div class="form-group mt-4">
+                                        <h4>Garantia da Locação</h4>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="guaranteeFiador" name="locationGuarantee"
+                                                class="custom-control-input hasChild" value="Fiador">
+                                            <label class="custom-control-label" for="guaranteeFiador">Fiador</label>
+                                            {{>searchClient name='fiador' property='guarantor'}}
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="guaranteeCaucao" name="locationGuarantee"
+                                                class="custom-control-input hasChild" value="Caução">
+                                            <label class="custom-control-label" for="guaranteeCaucao">Caução</label>
+                                            <div class="form-group Child">
+                                                <label for="calcaoValue" class="form-control-label">Valor</label>
+                                                <input type="text" class="form-control moneyValue" name="calcaoValue"
+                                                    id="calcaoValue" placeholder="R$">
+                                            </div>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="guaranteeFicanca" name="locationGuarantee"
+                                                class="custom-control-input hasChild" value="Fiança">
+                                            <label class="custom-control-label" for="guaranteeFicanca">Seguro
+                                                Fiança</label>
+                                            {{>formSecure name='bail'}}
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="guaranteeTitulo" name="locationGuarantee"
+                                                class="custom-control-input hasChild" value="capitalização">
+                                            <label class="custom-control-label" for="guaranteeTitulo">Título de
+                                                capitalização</label>
+                                            {{>formSecure name='capitalization'}}
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-icon btn-success my-5" type="submit" id="submitLocations">
+                                        <span class="btn-inner--text text-white">Concluir</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{>modal-success}}
+    </div>
+</div>

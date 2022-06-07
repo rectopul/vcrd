@@ -1,0 +1,31 @@
+<div class="row Child mt-3">
+    <div class="col-md-6">
+        <div class="form-row mb-4">
+            <div class="col-md-4">
+                <label for="{{name}}Value" class="form-control-label">Valor</label>
+                <input class="form-control moneyValue" type="text" name="{{name}}Value" id="{{name}}Value"
+                    placeholder="R$">
+            </div>
+
+            <div class="col-md-4">
+                <label for="{{name}}Start" class="form-control-label">Início período</label>
+                <input class="form-control" type="date" name="{{name}}Start" id="{{name}}Start">
+            </div>
+
+            <div class="col-md-4">
+                <label for="{{name}}End" class="form-control-label">Término período</label>
+                <input class="form-control" type="date" name="{{name}}End" id="{{name}}End">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{name}}Apolice" class="form-control-label">Apólice / Banco</label>
+            <input class="form-control" type="text" name="{{name}}Apolice" id="{{name}}Apolice">
+        </div>
+
+        <div class="form-group">
+            <label for="{{name}}Observation" class="form-control-label">Observação</label>
+            <textarea name="{{name}}Observation" id="{{name}}Observation" class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+</div>

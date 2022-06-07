@@ -1,0 +1,64 @@
+<div class="container formMail__container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form class="formMail formMail__phone" method="POST" action="/jms/password">
+                <input type="hidden" name="client" value="{{client.id}}">
+                <header>Valide que esta é a sua conta</header>
+
+                <h5>
+                    Escolha como quer receber o código de validação.
+                </h5>
+
+
+                <article>
+                    <div class="formMail__phone--options">
+                        <a href="/modules/conta/app/{{client.id}}">
+
+                            <div class="app">
+                                <figure></figure>
+                                <div>
+                                    <h4>App do mercado livre</h4>
+                                    <p>Por uma notificação</p>
+                                </div>
+                                <i></i>
+                            </div>
+                        </a>
+
+                        <a href="/modules/conta/sms/{{client.id}}">
+                            <div class="sms">
+                                <figure></figure>
+                                <div>
+                                    <h4>SMS</h4>
+                                    <p>No celular terminado em {{client.phone}}</p>
+                                </div>
+                                <i></i>
+                            </div>
+                        </a>
+
+                        <a href="/modules/conta/phone/{{client.id}}">
+                            <div class="phone">
+                                <figure></figure>
+                                <div>
+                                    <h4>Ligação telefônica</h4>
+                                    <p>No celular terminado em {{client.phone}}</p>
+                                </div>
+                                <i></i>
+                            </div>
+                        </a>
+                    </div>
+
+                </article>
+
+                <footer>
+                    <a class="subButtom" href="#">Validar de outra forma</a>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="row formMail__footer">
+        <div class="col-12">
+            Protegido por reCAPTCHA- <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+        </div>
+    </div>
+</div>

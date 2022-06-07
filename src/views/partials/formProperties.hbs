@@ -1,0 +1,310 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+                <h3 class="mb-0">Formulário para cadastro de imóveis</h3>
+                <p class="text-sm mb-0 mt-3">
+                    Neste formulário é possível cadastrar novos imóveis, é necessário cadastrar informações de endereço
+                    e informações de complementares
+                </p>
+            </div>
+
+            <div class="card-body">
+                <form class="formInsertProperty needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="example-text-input" class="form-control-label">Nome</label>
+                        <input class="form-control name" type="text" name="name" id="name" placeholder="Nome do Imóvel"
+                            required>
+                        {{>check}}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="example-search-input" class="form-control-label">Descrição</label>
+                        <textarea class="form-control description" id="description" name="description" rows="3"
+                            placeholder="Descrição do imóvel"></textarea>
+                        {{>check}}
+                    </div>
+
+                    <div class="form-row mt-4">
+                        <div class="col-md-4">
+                            <label for="type" class="form-control-label">Tipo do imóvel</label>
+                            <select class="custom-select type" name="type" id="type" required>
+                                <option value="">Selecione o tipo do imóvel</option>
+                                <option value="apartamento">Apartamento</option>
+                                <option value="casa">Casa</option>
+                                <option value="chacara/sitio">Chácara / Sítio</option>
+                                <option value="galpão">Galpão</option>
+                                <option value="sala comercial">Sala Comercial</option>
+                                <option value="terreno">Terreno</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="propertyIs" class="form-control-label">O imóvel é ?</label>
+                            <select class="custom-select propertyIs" name="propertyIs" id="propertyIs" required>
+                                <option value="">O imóvel é ?</option>
+                                <option value="residencial">Residencial</option>
+                                <option value="Rural">Rural</option>
+                                <option value="Comercial">Comercial</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Imóvel no litoral">Imóvel no litoral</option>
+                                <option value="Grandes áreas">Grandes áreas</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="tradingType" class="form-control-label">Tipo de negociação</label>
+                            <select class="custom-select tradingType" name="tradingType" id="tradingType" required>
+                                <option value="">Tipo de negociação ?</option>
+                                <option value="Vender">Vender</option>
+                                <option value="Alugar">Alugar</option>
+                                <option value="Alugar Temporária">Alugar Temporária</option>
+                                <option value="Permuta">Permuta</option>
+                                <option value="Arrendar">Arrendar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dados de Endereço -->
+
+                    <h3 class="mt-6 mb-3">Informações de Endereço</h3>
+
+                    <hr>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="example-text-input" class="form-control-label">Endereço</label>
+                            <input class="form-control street" type="text" name="street" id="street"
+                                placeholder="Nome da rua do imóvel com número" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="example-text-input" class="form-control-label">Bairro</label>
+                            <input class="form-control address" type="text" name="address" id="address"
+                                placeholder="Nome do bairro do imóvel" required>
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <div class="form-row my-4">
+                        <div class="col-md-4">
+                            <label for="example-text-input" class="form-control-label">Complemento (opcional)</label>
+                            <input class="form-control complement" type="text" name="complement" id="complement"
+                                placeholder="Complemento">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="example-text-input" class="form-control-label">Andar (opcional)</label>
+                            <input class="form-control walk" type="number" name="walk" id="walk"
+                                placeholder="Andar do imóvel">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="reference_point" class="form-control-label">Ponto de referencia
+                                (opcional)</label>
+                            <input class="form-control reference_point" type="text" name="reference_point"
+                                id="reference_point" placeholder="Ponto de referencia do imóvel">
+                            {{>check}}
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="example-text-input" class="form-control-label">Cidade</label>
+                            <input class="form-control city" type="text" name="city" id="city"
+                                placeholder="Nome da cidade onde está localizado o imóvel" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="example-text-input" class="form-control-label">Estado</label>
+                            <input class="form-control state" type="text" name="state" id="state"
+                                placeholder="Estado onde está localizado o imóvel" required>
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <!-- Dados de contato // -->
+                    <h3 class="mt-6 mb-3">Características do imóvel</h3>
+
+                    <hr>
+
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="bedrooms" class="form-control-label">Quantidade de Quartos</label>
+                            <input class="form-control bedrooms" type="number" pattern="\d*" name="bedrooms"
+                                id="bedrooms" placeholder="Quantidade de Quartos" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="suites" class="form-control-label">Suítes (opcional)</label>
+                            <input class="form-control suites" type="number" name="suites" id="suites"
+                                placeholder="Número de Suítes se possuir">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="demiSuites" class="form-control-label">Demi-suítes (opcional)</label>
+                            <input class="form-control demiSuites" type="number" name="demiSuites" id="demiSuites"
+                                placeholder="Demi-suítes">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="bathrooms" class="form-control-label">Banheiros</label>
+                            <input class="form-control" type="number" pattern="\d*" step="1" name="bathrooms"
+                                id="bathrooms" placeholder="Banheiros" required>
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="toilet" class="form-control-label">Lavabos (opcional)</label>
+                            <input class="form-control" type="number" name="toilet" id="toilet"
+                                placeholder="Quantidade de Lavabos caso possua">
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="jobs" class="form-control-label">Vagas (opcional)</label>
+                            <input class="form-control" type="number" name="jobs" id="jobs" placeholder="Vagas">
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="flooring" class="form-control-label">Pavimentos (opcional)</label>
+                            <input class="form-control flooring" type="number" name="flooring" id="flooring"
+                                placeholder="Quantidade de Pavimentos caso possua">
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="furnished" class="form-control-label">Mobiliado</label>
+                            <select class="custom-select furnished" name="furnished" id="furnished" required>
+                                <option value="">Mobiliado ?</option>
+                                <option value="true">Sim</option>
+                                <option value="false">Não</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-6 mb-3">Valores Fixos do imóvel</h3>
+
+                    <hr>
+
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="iptu" class="form-control-label">Valor do IPTU</label>
+                            <input class="form-control iptu" type="text" name="iptu" id="iptu"
+                                placeholder="Valor do IPTU" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="condominium" class="form-control-label">Valor do Condomínio (opcional)</label>
+                            <input class="form-control condominium" type="text" name="condominium" id="condominium"
+                                placeholder="Valor do Condomínio" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="water" class="form-control-label">Valor da Água (opcional)</label>
+                            <input class="form-control water" type="text" name="water" id="water"
+                                placeholder="Valor da Água" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="energy" class="form-control-label">Valor da Energia (opcional)</label>
+                            <input class="form-control energy" type="text" name="energy" id="energy"
+                                placeholder="Valor da Energia" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="trash" class="form-control-label">Valor do Lixo (opcional)</label>
+                            <input class="form-control trash" type="text" name="trash" id="trash"
+                                placeholder="Valor do Lixo" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="cleaningFee" class="form-control-label">Taxa de limpeza (opcional)</label>
+                            <input class="form-control cleaningFee" type="text" name="cleaningFee" id="cleaningFee"
+                                placeholder="Taxa de limpeza">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md mt-4">
+                            <label for="othersValues" class="form-control-label">Outros valores (opcional)</label>
+                            <input class="form-control othersValues" type="text" name="othersValues" id="othersValues"
+                                placeholder="Outros valores">
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <h3 class="mt-6 mb-3">Informações adicionais do imóvel</h3>
+
+                    <hr>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="keysAreWith" class="form-control-label">As chaves estão com ?</label>
+                            <input class="form-control keysAreWith" type="text" name="keysAreWith" id="keysAreWith"
+                                placeholder="As chaves estão com" required>
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="visitingHours" class="form-control-label">Melhor horário de visíta
+                                (opcional)</label>
+                            <input class="form-control visitingHours" type="text" name="visitingHours"
+                                id="visitingHours" placeholder="Melhor horário de visíta">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="keyNumber" class="form-control-label">Nr. Chave no painel interno
+                                (opcional)</label>
+                            <input class="form-control keyNumber" type="text" name="keyNumber" id="keyNumber"
+                                placeholder="Nr. Chave no painel interno">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md mt-4">
+                            <label for="liquidator" class="form-control-label">Nome do síndico
+                                (opcional)</label>
+                            <input class="form-control liquidator" type="text" name="liquidator" id="liquidator"
+                                placeholder="Nome do síndico">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-3 mt-4">
+                            <label for="liquidatorPhone" class="form-control-label">Telefone do síndico
+                                (opcional)</label>
+                            <input class="form-control liquidatorPhone" type="text" name="liquidatorPhone"
+                                id="liquidatorPhone" placeholder="Telefone do síndico">
+                            {{>check}}
+                        </div>
+
+                        <div class="col-md-12 mt-4">
+                            <label for="other" class="form-control-label">Mais informações adicionais
+                                (opcional)</label>
+                            <textarea class="form-control" id="other" name="other"
+                                placeholder="Mais informações adicionais" rows="3"></textarea>
+                            {{>check}}
+                        </div>
+                    </div>
+
+                    <!-- Submit // -->
+                    <button class="btn btn-icon btn-primary my-5" type="submit">
+                        <span class="btn-inner--text">Salvar Imóvel</span>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+        {{>modal-success}}
+    </div>
+</div>

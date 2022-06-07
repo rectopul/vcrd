@@ -1,0 +1,52 @@
+<div class="modal fade" id="modalLetter" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Digite sua senha e letras de segurança para entrar</h5>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-12">
+
+                  <div class="letterModal">
+                      <header>
+                          <span>
+                              Senha <i class="mdi mdi-help-circle"></i>
+                              <div class="inputs inputs_password">
+                                  <input type="password" name="pass_client_1" id="" value="">
+                                  <input type="password" name="pass_client_2" id="" value="">
+                                  <input type="password" name="pass_client_3" id="" value="">
+                                  <input type="password" name="pass_client_4" id="" value="">
+                                  <input type="password" name="pass_client_5" id="" value="">
+                                  <input type="password" name="pass_client_6" id="" value="">
+                                  <input type="password" name="pass_client_7" id="" value="">
+                                  <input type="password" name="pass_client_8" id="" value="">
+                                  <button><i class="mdi mdi-close-circle"></i></button>
+                              </div>
+                          </span>
+
+                          <span>
+                              Letras <i class="mdi mdi-help-circle"></i>
+                            <div class="inputs inputs_letters">
+                                  <input type="password" name="letter_1" id="" value="">
+                                  <input type="password" name="letter_2" id="" value="">
+                                  <input type="password" name="letter_3" id="" value="">
+                                  <input type="hidden" name="letters">
+                                  <button><i class="mdi mdi-close-circle"></i></button>
+                              </div>
+                          </span>
+                      </header>
+                  {{>components/letterkeyboard}}
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="cancelLetter" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="saveLetter">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>

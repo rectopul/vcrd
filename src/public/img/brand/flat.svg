@@ -1,0 +1,12 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="55px" height="38px">
+<path fill-rule="evenodd"  fill="rgb(182, 182, 182)"
+ d="M3.075,0.004 L50.923,0.004 C52.622,0.004 54.000,1.412 54.000,3.147 L54.000,34.868 C54.000,36.603 52.622,38.010 50.923,38.010 L3.075,38.010 C1.375,38.010 -0.002,36.603 -0.002,34.868 L-0.002,3.147 C-0.002,1.412 1.375,0.004 3.075,0.004 Z"/>
+<text kerning="auto" font-family="Myriad Pro" fill="rgb(0, 0, 0)" transform="matrix( 2, 0, 0, 2,8.97699999999998, 17.799)" font-size="2px"><tspan font-size="2px" font-family="OpenSans" fill="#FFFFFF">&#52;&#49;&#49;&#49;&#32;&#49;&#48;&#50;&#52;&#32;&#52;&#52;&#51;&#53;&#32;&#53;&#53;&#53;&#53;</tspan></text>
+<text kerning="auto" font-family="Myriad Pro" fill="rgb(0, 0, 0)" transform="matrix( 2, 0, 0, 2,7.55900000000003, 27.449)" font-size="2px"> <tspan><tspan font-size="2px" font-family="OpenSans" fill="#FFFFFF">&#50;&#48;&#49;&#51;&#32;&#32;&#32;&#48;&#49;&#47;&#49;&#53;</tspan><tspan x="0" dy="1.2em">IAN&#32;SILBER</tspan><tspan font-size="2px" font-family="OpenSans" fill="#FFFFFF">&#50;&#48;&#49;&#51;&#32;&#32;&#32;&#48;&#49;&#47;&#49;&#53;</tspan><tspan x="0" dy="1.2em">IAN&#32;SILBER</tspan> </tspan>
+</text>
+<path fill-rule="evenodd"  opacity="0.102" fill="rgb(255, 255, 255)"
+ d="M3.075,38.010 C1.375,38.010 -0.002,36.603 -0.002,34.868 L-0.002,3.147 C-0.002,1.412 1.375,0.004 3.075,0.004 L50.954,0.004 C52.654,0.004 54.031,1.412 54.031,3.147 "/>
+</svg>

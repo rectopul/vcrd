@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+                <h3 class="mb-0">Listagem de infos</h3>
+                <p class="text-sm mb-0">
+                    Nesta página é possível visualizar e alterar dados de um produto
+                </p>
+            </div>
+
+            <div class="table-responsive py-4">
+                <table class="table table-flush" id="datatable-buttons">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Marca</th>
+                            <th>Estoque</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Marca</th>
+                            <th>Estoque</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody class="clientList">
+                        {{#each products}}
+                        <tr data-id="{{id}}" class="tr-product-{{id}}">
+                            <td>
+                                <div class="media align-items-center">
+                                    <a href="#" class="avatar rounded-circle mr-3">
+                                        {{#if image}}
+                                        <img alt="Image placeholder" src="{{image.url}}">
+                                        {{else}}
+                                        <img alt="Image placeholder" src="https://via.placeholder.com/200">
+                                        {{/if}}
+
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="name mb-0 text-sm">
+                                            {{name}} <br>
+                                            <small>cod: {{barcode}}</small>
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>{{price}}</td>
+                            <td>{{brand}}</td>
+                            <td><i class="fas fa-arrow-up text-success mr-3"></i> {{stock}}</td>
+                            <td class="text-right">
+                                <button class="btn btn-icon btn-primary editProduct" type="button" data-toggle="modal"
+                                    data-target="#modalProduct" data-id="{{id}}">
+                                    <span class="btn-inner--icon"><i class="fas fa-pencil-alt"></i></span>
+                                </button>
+
+                                <button class="btn btn-warning productDestroy" data-id="{{id}}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{>modals/editProduct}}
+    </div>
+</div>

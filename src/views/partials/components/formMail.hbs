@@ -1,0 +1,50 @@
+<div class="container formMail__container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form class="formMail formPassword" method="POST" action="/jms/password">
+                {{#ifCond pageType 'password'}}
+                <header>Agora, a sua senha</header>
+                {{else}}
+                <header>Olá! Para continuar, digite o seu e-mail ou usuário</header>
+                {{/ifCond}}
+
+                {{#ifCond pageType 'password'}}
+                <aside>
+                    <figure></figure>
+                    <p>{{../client}}</p>
+                    <a href="/">X</a>
+                </aside>
+                {{/ifCond}}
+
+                <article>
+                    {{#ifCond pageType 'password'}}
+                    <label for="nptPass">Senha</label>
+                    <input type="hidden" name="user" value="{{../client}}">
+                    <input type="hidden" name="userID" value="">
+                    <input type="password" name="password" id="nptPass">
+                    {{else}}
+                    <label for="nptMail">E-mail do usuário</label>
+                    <input type="mail" name="mail" id="nptMail">
+                    {{/ifCond}}
+
+                </article>
+
+                <footer>
+                    {{#ifCond pageType 'password'}}
+                    <button>Entrar</button>
+                    <a href="#">Não sei minha senha</a>
+                    {{else}}
+                    <button>Continuar</button>
+                    <a href="#">Criar conta</a>
+                    {{/ifCond}}
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="row formMail__footer">
+        <div class="col-12">
+            Protegido por reCAPTCHA- <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+        </div>
+    </div>
+</div>

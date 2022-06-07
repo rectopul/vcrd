@@ -1,0 +1,45 @@
+<div class="form-group Child inputWrapper {{property}}Tag">
+    <label for="occupant" class="form-control-label text-capitalize">{{name}}</label>
+    <br>
+    <input type="text" class="form-control {{property}} searching" id="{{property}}" name="{{property}}"
+        placeholder="Selecione o {{name}}" data-toggle="tags" required>
+    {{>check}}
+
+    <!-- Response of search -->
+
+    <div class="row responseCard mt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 class="mb-0 text-capitalize">{{name}}s encontrados</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div>
+                        <table class="table align-items-center table-flush table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">
+                                        Nome</th>
+                                    <th scope="col">
+                                        CPF</th>
+                                    <th scope="col">
+                                        Género</th>
+                                    <th scope="col">
+                                        Tipo</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="list resultList">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

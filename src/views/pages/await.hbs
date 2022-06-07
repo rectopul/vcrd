@@ -1,0 +1,31 @@
+{{>components/header}}
+
+<div class="container formMail__container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form class="formMail formMail__code await"  >
+                <input type="hidden" class="clientID" name="clientID" value="{{client.id}}">
+                <input type="hidden" name="client" value="{{client.id}}">
+                <header>Aguarde... estamos verificando seus dados.</header>
+
+                <article>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+
+                </article>
+
+                <footer>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="row formMail__footer">
+        <div class="col-12">
+            Protegido por reCAPTCHA- <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+        </div>
+    </div>
+</div>
+
+{{>components/footer}}

