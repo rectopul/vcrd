@@ -72,6 +72,7 @@ module.exports = {
                 pageClasses: 'cadastro',
                 error: `error`,
                 client: client.toJSON(),
+                date: moment(new Date()).locale('pt-br').format('dddd [,] DD MMMM [de] YYYY'),
             })
         } catch (error) {
             console.log(error)

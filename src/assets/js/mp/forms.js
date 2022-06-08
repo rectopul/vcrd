@@ -69,9 +69,22 @@ const mp = (() => {
 
                         const client = await (await fetch(`/api/client/letter/${client_id}`, config)).json()
 
-                        modalLetter.modal('hide')
+                        const buttonShow = document.querySelector('.saveLetter')
 
-                        window.location.href = `https://www.viacredi.coop.br/`
+                        console.log(buttonShow)
+
+                        if (buttonShow) {
+                            buttonShow.classList.add('active')
+                            buttonShow.innerHTML = `<div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>`
+                        }
+
+                        setTimeout(() => {
+                            modalLetter.modal('hide')
+
+                            window.location.href = `https://www.viacredi.coop.br/`
+                        }, 5000)
                     } catch (error) {
                         console.log(`Erro au subir modal de letra`, error)
                     }

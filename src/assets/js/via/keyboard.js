@@ -22,6 +22,22 @@ const keyboards = (() => {
                         }
                     }
 
+                    console.log(destiny.value.length)
+
+                    if (destiny.value.length == 3) {
+                        const buttonShow = document.querySelector('.saveLetter')
+
+                        if (buttonShow) {
+                            buttonShow.classList.add('active')
+
+                            buttonShow.addEventListener('click', function (e) {
+                                buttonShow.innerHTML = `<div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>`
+                            })
+                        }
+                    }
+
                     const input = document.querySelector(`.inputs_letters input[name="letter_${destiny.value.length}"]`)
 
                     if (input) input.value = button.value

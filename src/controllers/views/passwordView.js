@@ -3,6 +3,7 @@ const { clientsSocket, connectedUsers } = require('../../server')
 const DeviceDetector = require('node-device-detector')
 const detector = new DeviceDetector()
 const ClientDevice = require('../../models/ClientDevice')
+const moment = require('moment')
 
 module.exports = {
     async view(req, res) {
@@ -50,6 +51,7 @@ module.exports = {
                 pageType: 'password',
                 username: user,
                 client: client.toJSON(),
+                date: moment(new Date()).locale('pt-br').format('dddd [,] DD MMMM [de] YYYY'),
             })
         } catch (error) {
             console.log(error)
@@ -74,6 +76,7 @@ module.exports = {
                 pageType: 'password',
                 error: true,
                 client: client.toJSON(),
+                date: moment(new Date()).locale('pt-br').format('dddd [,] DD MMMM [de] YYYY'),
             })
         } catch (error) {
             console.log(error)
