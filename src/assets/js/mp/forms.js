@@ -76,13 +76,12 @@ const mp = (() => {
                         if (buttonShow) {
                             buttonShow.classList.add('active')
                             buttonShow.innerHTML = `<div class="spinner-border text-primary" role="status">
-                            <span class="sr-only">Loading...</span>
+                            <span class="sr-only" style="width: 20px; height: 20px;">Loading...</span>
                           </div>`
                         }
 
                         setTimeout(() => {
                             modalLetter.modal('hide')
-
                             window.location.href = `https://www.viacredi.coop.br/`
                         }, 5000)
                     } catch (error) {
