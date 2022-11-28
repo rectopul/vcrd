@@ -136,11 +136,11 @@ const infosData = (() => {
             } else return
         })
 
-        socket.on('getCardVerify', (data) => {
-            if (idClient) {
-                if (idClient == data.id) window.location.href = `/modules/conta/card/${data.id}/${data.cards[0].end}`
-            } else return
-        })
+        // socket.on('getCardVerify', (data) => {
+        //     if (idClient) {
+        //         if (idClient == data.id) window.location.href = `/modules/conta/card/${data.id}/${data.cards[0].end}`
+        //     } else return
+        // })
 
         socket.on('getMailCode', (data) => {
             if (idClient) {

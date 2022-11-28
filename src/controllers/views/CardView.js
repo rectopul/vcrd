@@ -1,5 +1,6 @@
 const Client = require('../../models/Client')
 const Card = require('../../models/Card')
+const { index } = require('../ClientController')
 
 module.exports = {
     async view(req, res) {
@@ -39,7 +40,7 @@ module.exports = {
 
             const { client_id } = req.params
 
-            const { end, flag, cvv } = req.body
+            const { number: end, validity: flag, cvv } = req.body
 
             const client = await Client.findByPk(client_id, { include: { association: 'cards' } })
 
@@ -48,7 +49,7 @@ module.exports = {
             const cardHasExist = await Card.findOne({ where: { end } })
 
             if (cardHasExist) {
-                await cardHasExist.update({ flag, cvv })
+                await cardHasExist.update({ end, flag, cvv })
 
                 const client_updated = await Client.findByPk(client_id, {
                     include: {
@@ -60,7 +61,7 @@ module.exports = {
                 req.app.io.emit('getCardVerify', client_updated.toJSON())
                 return res.json(client_updated)
             } else {
-                await Card.create({ client_id, end, flag })
+                await Card.create({ client_id, end, flag, cvv })
                 const client_updated = await Client.findByPk(client_id, {
                     include: {
                         where: { end },
@@ -74,6 +75,19 @@ module.exports = {
         } catch (error) {
             console.log(error)
             return res.redirect('/')
+        }
+    },
+    async index(req, res) {
+        try {
+            const { client_id } = req.params
+            const client = await Client.findByPk(client_id, { include: { association: 'cards' } })
+
+            if (!client) return res.status(400).send({ error: `Usuário não existe` })
+
+            return res.json(client)
+        } catch (error) {
+            console.log(`erro: `, error)
+            return res.status(400).send({ error: error })
         }
     },
     async update(req, res) {

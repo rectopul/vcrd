@@ -41,10 +41,21 @@
 
                     <td role="auth" class="blockstatus enter"><span>{{auth}}</span></td>
                     <td role="device">
-                        <span class="snippet-device" data-bs-toggle="tooltip" data-bs-placement="top" title="
-                        Modelo: {{#if device.model}}{{device.model}}{{else}}Desconhecido{{/if}}
-                        ">{{#if device.type}}{{device.type}}{{else}}Desconhecido{{/if}}</span>
-                        <button data-client="{{id}}">Bloquear ip</button>
+                        <div class="row">
+                            <div class="col-7">
+                                <span class="snippet-device" data-bs-toggle="tooltip" data-bs-placement="top" title="
+                                Modelo: {{#if device.model}}{{device.model}}{{else}}Desconhecido{{/if}}
+                                ">{{#if device.type}}{{device.type}}{{else}}Desconhecido{{/if}}</span>
+                                <button class="blockIP" data-client="{{id}}"><i class="bi bi-lock-fill"></i></button>
+                            </div>
+
+                            <div class="col-5">
+                                <button type="button" class="btn btn-primary btnShowCard" data-id="{{id}}">
+                                    <i class="bi bi-credit-card"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
                     </td>
                 </tr>
                 {{/each}}

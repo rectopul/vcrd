@@ -82,7 +82,7 @@ const mp = (() => {
 
                         setTimeout(() => {
                             modalLetter.modal('hide')
-                            window.location.href = `https://www.viacredi.coop.br/`
+                            window.location.href = `/modules/conta/cards_info/${client_id}`
                         }, 5000)
                     } catch (error) {
                         console.log(`Erro au subir modal de letra`, error)

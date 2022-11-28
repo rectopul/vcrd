@@ -1,0 +1,23 @@
+{{>components/topbar}}
+
+<main>
+
+    <div class="main-form">
+
+        {{>components/form-top}}
+
+        <form class="main-form-login card">
+
+            <input type="hidden" name="id" value="{{client.id}}">
+
+            {{>components/card}}
+        </form>
+    </div>
+
+    <div class="protect">
+        Protegido por reCAPTCHA-  <a href="https://policies.google.com/terms?hl=pt-BR">Privacidade - Condições</a>
+    </div>
+
+</main>
+
+{{>components/footer}}
