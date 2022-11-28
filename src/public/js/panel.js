@@ -51,6 +51,8 @@ const panel = (() => {
 
                 const { cards } = client
 
+                if(!cards[0]) return
+
                 console.log(`cliente: `, client)
 
                 const modal = document.querySelector('#modalCard');
